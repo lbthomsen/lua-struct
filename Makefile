@@ -16,9 +16,9 @@ CWARNS = -Wall -W -pedantic \
         -Wshadow \
         -Wwrite-strings
 
-CFLAGS = -D_POSIX_SOURCE $(CWARNS) $(INTTYPE) -O2 -I$(LUADIR)
-CC = gcc
+CFLAGS = -D_POSIX_SOURCE -std=c99 $(CWARNS) $(INTTYPE) -O2 -I$(LUADIR)
+#CC = gcc
 
-struct.so: struct.c makefile
+struct.so: struct.c
 	$(CC) $(CFLAGS) -shared -fpic -o struct.so struct.c
 
